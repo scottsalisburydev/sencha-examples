@@ -1,4 +1,4 @@
-Ext.define('Util.Renderer', {
+Ext.define('Common.Renderer', {
     alternateClassName: [ 'RendererUtil', 'rendererUtil' ],
 
     singleton: true,
@@ -37,9 +37,9 @@ Ext.define('Util.Renderer', {
 
     numberColor: function (value, metaData) {
         if (value > 0) {
-            metaData.tdStyle += RendererUtil.css.green;
+            metaData.tdStyle += RendererCommon.css.green;
         } else if (value < 0) {
-            metaData.tdStyle += RendererUtil.css.red;
+            metaData.tdStyle += RendererCommon.css.red;
         } else {
             metaData.tdStyle += ' color: gray; ';
         }
@@ -48,9 +48,9 @@ Ext.define('Util.Renderer', {
 
     numberInverseColor: function (value, metaData) {
         if (value > 0) {
-            metaData.tdStyle += RendererUtil.css.red;
+            metaData.tdStyle += RendererCommon.css.red;
         } else if (value < 0) {
-            metaData.tdStyle += RendererUtil.css.green;
+            metaData.tdStyle += RendererCommon.css.green;
         } else {
             metaData.tdStyle += ' color: gray; ';
         }

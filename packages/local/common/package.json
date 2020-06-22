@@ -2,7 +2,7 @@
     /**
      * The name of the package.
      */
-    "name": "util",
+    "name": "common",
 
     "sencha": {
         /**
@@ -10,14 +10,15 @@
          *
          *    "alternateName": [],
          */
-
+        "alternateName": [ "Util" ],
+        
          /**
           * The namespace of this package.
           *
           * As a general rule, all classes that belong to this package should be under this namespace
           * if multiple namespaces are part of this package, set this to "".
           */
-         "namespace": "Util",
+         "namespace": "Common",
 
         /**
          * The package type.
@@ -45,7 +46,7 @@
           * Required only if you are distributing this package through a Sencha Cmd repository,
           * in which case it should match the name you assign to your local package repository.
           */
-        "creator": "anonymous",
+        "creator": "Shayne Trosdahl",
 
         /**
          * A summarized description of this package.
