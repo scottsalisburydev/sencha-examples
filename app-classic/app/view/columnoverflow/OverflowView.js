@@ -11,6 +11,7 @@ Ext.define('Demo.view.columnoverflow.OverflowView',{
 
     xtype: 'overflow-overflowtooltipgrid',
     controller: 'overflow-overflowtooltipgrid',
+    description: 'Hover over a cell to view the full content in a tooltip.',
     viewModel: {
         type: 'overflow-overflowtooltipgrid'
     },

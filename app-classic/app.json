@@ -1,7 +1,7 @@
 {
     "name": "Demo",
     "namespace": "Demo",
-    "version": "0.0.1.0",
+    "version": "0.0.6.0",
     "framework": "ext",
     "toolkit": "classic",
     "theme": "theme-triton",
