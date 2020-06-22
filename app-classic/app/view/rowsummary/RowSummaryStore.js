@@ -4,7 +4,7 @@ Ext.define('Demo.view.rowsummary.RowSummaryStore', {
 
     model: 'Demo.view.rowsummary.RowSummaryStoreModel',
     autoLoad: true,
-    
+    groupField: 'project',
     proxy: {
         type: 'ajax',
         url: 'app/view/rowsummary/data.json',

@@ -76,10 +76,8 @@ Ext.define('Demo.view.rowsummary.RowSummaryView',{
         width: 136,
         sortable: true,
         renderer: Ext.util.Format.dateRenderer('m/d/Y'),
-        
         summaryType: 'max',
         summaryRenderer: Ext.util.Format.dateRenderer('m/d/Y'),
-        
         field: {
             xtype: 'datefield'
         }
@@ -88,11 +86,9 @@ Ext.define('Demo.view.rowsummary.RowSummaryView',{
         dataIndex: 'estimate',
         width: 100,
         sortable: true,
-        
         renderer: function (value, metaData, record, rowIdx, colIdx, store, view) {
             return value + ' hours';
         },
-
         summaryType: 'sum',
         summaryRenderer: function (value, summaryData, dataIndex) {
             return value + ' hours';
