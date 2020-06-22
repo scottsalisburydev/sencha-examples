@@ -20,6 +20,7 @@ Ext.define('Demo.view.editablecell.EditableCellView',{
     },
     
     category: 'Editing',
+    description: 'Edit grid cell data.',
     title: 'Cell Editing',
     iconCls: 'x-fa fa-edit',
 

@@ -16,7 +16,7 @@ Ext.define('Demo.view.rowbody.RowBodyView',{
         type: 'rows-rowbody-rowbodygrid'
     },
 
-    category: 'Row',
+    category: 'Widget Integration',
     title: 'Row Body Widget',
     iconCls: 'x-fa fa-check',
 

@@ -16,13 +16,14 @@ Ext.define('Demo.view.spreadsheetcheckbox.SpreadSheetCheckboxView',{
     viewModel: {
         type: 'spreadsheet-checkbox-grid'
     },
+    
+    title: 'Spreadsheet Selection',
+    category: 'Selection',
+    description: 'Select rows and cells like in a Spreadsheet',
 
     store: {
-        type: 'monthlysales'
+        type: 'spreadsheetcheckboxstore'
     },
-    
-    category: 'Selection',
-    title: 'Spreadsheet',
 
     selModel: {
         type: 'spreadsheet',

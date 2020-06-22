@@ -19,7 +19,7 @@ Ext.define('Demo.view.rowheight.RowHeightView',{
 
     iconCls: 'x-fa fa-text-height',
     title: 'Variable Row Height',
-    category: 'Row',
+    category: 'Row Operations',
     description: 'Allow rows with varied height.',
 
     store: { type:  'rowheightstore' },

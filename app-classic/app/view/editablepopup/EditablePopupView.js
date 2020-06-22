@@ -21,6 +21,7 @@ Ext.define('Demo.view.editablepopup.EditablePopupView',{
     category: 'Editing',
     title: 'Popup Editing',
     iconCls: 'x-fa fa-window-restore',
+    description: 'Show a form populated by data from the record. Edits made can be seen in the row.',
 
     store: { type: 'editablepopupstore' },
     headerBorders: true,

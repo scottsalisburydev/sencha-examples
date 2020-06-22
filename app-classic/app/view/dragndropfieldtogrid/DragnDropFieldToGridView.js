@@ -21,7 +21,8 @@ Ext.define('Demo.view.dragndropfieldtogrid.DragnDropFieldToGridView',{
     },
 
     category: 'Drag and Drop',
-    title: 'Form to Grid',
+    description: 'Drag a field by it\'s label to the grid cell.',
+    title: 'Field to Grid',
     iconCls: 'x-fa fa-hand-rock',
 
     layout: {

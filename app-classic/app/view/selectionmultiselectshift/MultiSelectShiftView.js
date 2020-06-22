@@ -15,9 +15,10 @@ Ext.define('Demo.view.selectionmultiselectshift.MultiSelectShiftView', {
         type: 'multiselectshift-rowshiftgrid'
     },
     
-    category: 'Selection',
-    title: 'Multi Shift Click',
     iconCls: 'x-fa fa-hand-pointer',
+    title: 'Multi Shift Click',
+    category: 'Selection',
+    description: 'Select multiple rows while holding the Shift key',
 
     store: { type: 'multiselectshiftstore' },
     columnLines: true,

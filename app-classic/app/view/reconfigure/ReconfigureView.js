@@ -17,7 +17,7 @@ Ext.define('Demo.view.reconfigure.ReconfigureView',{
 
     iconCls: 'x-fa fa-cog',
     title: 'Reconfigurable Grid',
-    category: 'Advanced',
+    category: 'Column Operations',
     description: 
         'This demo allows you to reconfigure the grid based on a ' +
         'endpoint of your choice. There are some pre populated to try out. ' +

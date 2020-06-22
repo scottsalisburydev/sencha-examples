@@ -17,7 +17,9 @@ Ext.define('Demo.view.columnmenu.ColumnMenuView',{
         type: 'column-columnmenuview'
     },
 
-    category: 'Column',
+    category: 'Column Operations',
+    description: 'Click on the column\'s menu to see custom menu items added.',
+    
     title: 'Custom Column Menu',
     iconCls: 'x-fa fa-caret-square-down',
 

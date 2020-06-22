@@ -11,13 +11,15 @@ Ext.define('Demo.view.editableform.EditableFormView', {
         'Demo.view.editableform.EditableFormStoreModel',
     ],
 
+    xtype: 'editable-editableformview',
     controller: 'editable-editableformview',
     viewModel: {
         type: 'editable-editableformview'
     },
     
-    xtype: 'editable-editableformview',
     category: 'Editing',
+    description: 'Show a form populated by data from the record. Edits made can be seen in the row.',
+    
     title: 'Form Editing',
     iconCls: 'x-fa fa-edit',
 

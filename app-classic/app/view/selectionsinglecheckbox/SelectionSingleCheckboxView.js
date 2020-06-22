@@ -18,6 +18,7 @@ Ext.define('Demo.view.selectionsinglecheckbox.SelectionSingleCheckboxView',{
     category: 'Selection',
     title: 'Single Select: Check',
     iconCls: 'x-fa fa-check-circle',
+    description: 'Allows only a single row selection using a checkbox column',
 
     store: { type: 'selectionsinglecheckboxstore' },
 

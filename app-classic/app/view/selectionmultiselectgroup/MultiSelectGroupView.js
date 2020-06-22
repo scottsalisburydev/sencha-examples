@@ -15,9 +15,10 @@ Ext.define('Demo.view.selectionmultiselectgroup.MultiSelectGroupView',{
         type: 'multiselectgroup-rowgroupsgrid'
     },
 
-    category: 'Selection',
-    title: 'Row Groups',
     iconCls: 'x-fa fa-check',
+    title: 'Row Groups',
+    category: 'Selection',
+    description: 'Select multiple rows in a grid using groups',
 
     features: [{
         id: 'grouping',

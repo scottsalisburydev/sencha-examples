@@ -17,7 +17,7 @@ Ext.define('Demo.view.columngroup.ColumnGroupView',{
         type: 'column-columngroupview'
     },
 
-    category: 'Column',
+    category: 'Column Operations',
     title: 'Grouped Columns',
     iconCls: 'x-fa fa-table',
 

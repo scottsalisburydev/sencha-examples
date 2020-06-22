@@ -16,7 +16,7 @@ Ext.define('Demo.view.columnoverflow.OverflowView',{
     },
     
     
-    category: 'Column',
+    category: 'Column Operations',
     title: 'Overflow Tooltips',
     iconCls: 'x-fa fa-check',
 

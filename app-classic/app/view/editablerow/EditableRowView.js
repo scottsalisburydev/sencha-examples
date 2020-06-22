@@ -18,6 +18,7 @@ Ext.define('Demo.view.editablerow.EditableRowView',{
 
     xtype: 'editing-row-rowgrid',
     category: 'Editing',
+    description: 'Row editing mode.',
     title: 'Row Editing',
     iconCls: 'x-fa fa-edit',
 

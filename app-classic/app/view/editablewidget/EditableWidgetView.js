@@ -17,7 +17,7 @@ Ext.define('Demo.view.editablewidget.EditableWidgetView', {
         type: 'editable-editablewidgetview'
     },
 
-    category: 'Editing',
+    category: 'Widget Integration',
     title: 'Widget Editing',
     iconCls: 'x-fa fa-cubes',
 

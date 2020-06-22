@@ -16,13 +16,10 @@ Ext.define('Demo.view.selectionmultiselectclick.MultiSelectClickView',{
     },
 
     category: 'Selection',
+    description: 'Select/Deselect rows by holding CTL or CMD and clicking on any of the rows below.',
     title: 'Multi Click',
     iconCls: 'x-fa fa-check',
-
-    dockedItems: [{
-        xtype: 'info',
-        text: 'Select/Deselect rows by holding CTL or CMD and clicking on any of the rows below.'
-    }],
+    
 
     store: { type: 'multiselectclickstore' },
     columnLines: true,

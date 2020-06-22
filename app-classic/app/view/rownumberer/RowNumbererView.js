@@ -16,7 +16,7 @@ Ext.define('Demo.view.rownumberer.RowNumbererView',{
     },
 
     iconCls: 'x-fa fa-list-ol',
-    category: 'Row',
+    category: 'Row Operations',
     title: 'Row Numberer',
 
     columnLines: true,

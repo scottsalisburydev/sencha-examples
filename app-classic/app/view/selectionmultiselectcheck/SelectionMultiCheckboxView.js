@@ -17,9 +17,10 @@ Ext.define('Demo.view.selectionmultiselectcheck.SelectionMultiCheckboxView', {
         type: 'multiselectcheck-rowcheckboxgrid'
     },
 
-    category: 'Selection',
-    title: 'Multi Checkbox',
     iconCls: 'x-fa fa-tasks',
+    title: 'Multi Checkbox',
+    category: 'Selection',
+    description: 'Select/Deselect rows by holding CTL or CMD and clicking on any of the rows below.',
 
     /**
      * https://docs.sencha.com/extjs/7.2.0/classic/Ext.selection.Model.html

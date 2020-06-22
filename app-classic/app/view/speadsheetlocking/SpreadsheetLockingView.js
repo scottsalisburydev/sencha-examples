@@ -7,9 +7,11 @@ Ext.define('Demo.view.speadsheetlocking.SpreadsheetLockingView',{
     requires: [
         'Ext.grid.selection.SpreadsheetModel',
         'Ext.grid.plugin.Clipboard',
-        'Demo.view.speadsheetlocking.SpreadsheetLockingView',
-        'Demo.view.speadsheetlocking.SpreadsheetLockingView',
-        'Demo.view.speadsheetlocking.SpreadsheetLockingView',
+        
+        'Demo.view.speadsheetlocking.SpreadsheetLockingViewController',
+        'Demo.view.speadsheetlocking.SpreadsheetLockingViewModel',
+        'Demo.view.speadsheetlocking.SpreadsheetLockingStore',
+        'Demo.view.speadsheetlocking.SpreadsheetLockingStoreModel',
     ],
 
     xtype: 'spreadsheet-locking-grid',
@@ -19,11 +21,11 @@ Ext.define('Demo.view.speadsheetlocking.SpreadsheetLockingView',{
     },
 
     category: 'Selection',
-    title: 'Locked Columns',
+    title: 'Spreadsheet with Locked Columns',
     iconCls: 'x-fa fa-lock',
     cls: 'tool-icon-size',
     
-    store: { type: 'monthlysales' },
+    store: { type: 'spreadsheetlockingstore' },
     
     // There is no asymmetric data, we do not need to go to the expense of synching row heights
     syncRowHeight: false,

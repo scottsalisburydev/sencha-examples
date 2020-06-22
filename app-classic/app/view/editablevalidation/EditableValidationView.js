@@ -20,6 +20,7 @@ Ext.define('Demo.view.editablevalidation.EditableValidationView',{
     category: 'Editing',
     title: 'Validation Editing',
     iconCls: 'x-fa fa-edit',
+    description: 'Validate changes before allowing them to be saved.',
 
     store: { 
         type: 'editablevalidationstore' 

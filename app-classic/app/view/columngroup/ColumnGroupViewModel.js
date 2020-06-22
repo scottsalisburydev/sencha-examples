@@ -4,5 +4,4 @@ Ext.define('Demo.view.columngroup.ColumnGroupViewModel', {
     data: {
         name: 'Demo'
     }
-
 });

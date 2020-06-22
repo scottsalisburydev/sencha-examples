@@ -17,6 +17,7 @@ Ext.define('Demo.view.selectionsingle.SelectionSingleView',{
 
     category: 'Selection',
     title: 'Single Select: Click',
+    description: 'Allows only a single row selection',
     store: { type: 'selectionsinglestore' },
     columnLines: true,
 

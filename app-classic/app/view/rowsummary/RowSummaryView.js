@@ -15,10 +15,11 @@ Ext.define('Demo.view.rowsummary.RowSummaryView',{
         type: 'summary-summarygrid'
     },
 
-    category: 'Row',
     title: 'Summary',
+    category: 'Row Operations',
+    description: '',
 
-    store: { 
+    store: {
         type: 'rowsummarystore'
     },
 

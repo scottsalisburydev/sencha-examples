@@ -18,6 +18,7 @@ Ext.define('Demo.view.dragndropgridtoform.DragnDropGridToFormView',{
     },
     
     category: 'Drag and Drop',
+    description: 'Drag from the grid over the form to load the values',
     title: 'Grid to Form',
     iconCls: 'x-fa fa-bars',
 

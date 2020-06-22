@@ -17,7 +17,7 @@ Ext.define('Demo.view.rowexpandlocked.RowExpanderLockedColumnView',{
 
     iconCls: 'x-fa fa-layer-group',
     title: 'Row Expander & Locked Columns',
-    category: 'Row',
+    category: 'Row Operations',
     description: 'Row Expansion with Locked Columns.',
 
     store: { type:  'rowexpanderlockedcolumnstore' },
