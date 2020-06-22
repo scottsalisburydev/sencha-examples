@@ -14,9 +14,10 @@ Ext.define('Demo.view.pagingslider.PagingSliderView',{
         type: 'paging-slider-grid'
     },
 
-    category: 'Paging',
+    category: 'Rendering & Scrolling',
     title: 'Paging Slider',
     iconCls: 'x-fa fa-sliders-h',
+    description: 'Drag the slider in the paging toolbar to load records based on the `pageSize` configuration.',
 
     /**
      * See Demo.store.Users for additional configuration related to paging.

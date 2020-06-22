@@ -15,9 +15,10 @@ Ext.define('Demo.view.rowexpand.RowExpanderView', {
         type: 'rowexpand-rowexpandergrid'
     },
 
-    category: 'Row',
-    title: 'Row Expander',
     iconCls: 'x-fa fa-stream',
+    title: 'Row Expander',
+    category: 'Row',
+    description: 'Additional data displayed on expandable row body.',
 
     store: { 
         type: 'rowexpanderstore'
@@ -27,7 +28,9 @@ Ext.define('Demo.view.rowexpand.RowExpanderView', {
     gridLines: true,
     columnLines: true,
     frame: false,
-
+    /**
+     * https://docs.sencha.com/extjs/6.5.3/modern/Ext.grid.plugin.RowExpander.html
+     */
     plugins: [{
         ptype: 'rowexpander', 
         id: 'rowexpander',

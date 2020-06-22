@@ -14,9 +14,10 @@ Ext.define('Demo.view.pagingprogress.PagingProgressView',{
         type: 'paging-progress-grid'
     },
 
-    category: 'Paging',
+    category: 'Rendering & Scrolling',
     title: 'Progress Bar Pager',
     iconsCls: 'x-fa fa-battery-quarter',
+    description: 'A paging toolbar with a progress bar to show paging location.',
 
     /**
      * See Demo.store.Users for additional configuration related to paging.

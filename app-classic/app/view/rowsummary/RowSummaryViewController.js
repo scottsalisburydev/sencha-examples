@@ -26,5 +26,9 @@ Ext.define('Demo.view.rowsummary.RowSummaryViewController', {
         Log.event(arguments.callee.name, arguments, this);
         
         btn.up('grid').getView().getFeature('group').toggleSummaryRow();
+    },
+
+    summaryRenderer: function(value, summaryData, dataIndex) {
+        return ((value === 0 || value > 1) ? '(' + value + ' Tasks)' : '(1 Task)');
     }
 });

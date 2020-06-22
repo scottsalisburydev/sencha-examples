@@ -17,9 +17,10 @@ Ext.define('Demo.view.clipboard.ClipboardView',{
         type: 'clipboard-clipboardgrid'
     },
 
-    category: 'Editing',
-    title: 'Copy & Paste',
     iconCls: 'x-fa fa-clipboard',
+    title: 'Copy & Paste',
+    category: 'Editing',
+    description: 'Click and Drag Cells or Rows to make a Selection then use Copy and Paste Keyboard Commands',
 
     /**
      * https://docs.sencha.com/extjs/7.2.0/classic/Ext.data.Store.html

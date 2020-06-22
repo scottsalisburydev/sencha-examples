@@ -18,7 +18,7 @@ Ext.define('Demo.view.export.ExportView',{
     },
     
     iconCls: 'x-fa fa-file-excel',
-    category: 'Rendering',
+    category: 'Rendering & Scrolling',
     title: 'Export grid content',
 
     frame: true,
@@ -28,7 +28,7 @@ Ext.define('Demo.view.export.ExportView',{
     },
 
     store: {
-        type: 'products',
+        type: 'exportstore',
         autoLoad: true,
         autoDestroy: true,
         grouper: {

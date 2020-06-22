@@ -6,7 +6,8 @@ Ext.define('Demo.view.rowbody.RowBodyView',{
         'Demo.view.rowbody.RowBodyViewController',
         'Demo.view.rowbody.RowBodyViewModel',
         'Demo.view.rowbody.RowBodyStore',
-        'Demo.view.rowbody.RowBodyStoreModel'
+        'Demo.view.rowbody.RowBodyStoreModel',
+        'Demo.view.rowbody.OrderModel'
     ],
 
     xtype: 'rows-rowbody-rowbodygrid',
@@ -53,10 +54,10 @@ Ext.define('Demo.view.rowbody.RowBodyView',{
             widget: {
                 xtype: 'grid',
                 autoLoad: true,
+                height: 300,
                 bind: {
                     store: '{record.orders}',
-                    category: '',
-    title: 'Orders for {record.name}'
+                    title: 'Orders for {record.name}'
                 },
                 columns: [{
                     text: 'Order Id',

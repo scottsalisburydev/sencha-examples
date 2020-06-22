@@ -81,8 +81,7 @@ Ext.define('Demo.view.dragndropgridtogrid.DragnDropGridtoGridView',{
         }]
     }, {
         xtype: 'base-grid',
-        category: '',
-    title: 'Second Grid',
+        title: 'Second Grid',
         reference: 'grid2',
         
         viewConfig: {

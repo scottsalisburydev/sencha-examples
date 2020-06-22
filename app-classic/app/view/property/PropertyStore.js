@@ -1,5 +1,5 @@
 /**
- * Not used by this example.
+ * Not used by this demo.
  */
 Ext.define('Demo.view.property.PropertyStore', {
     extend: 'Ext.data.Store',

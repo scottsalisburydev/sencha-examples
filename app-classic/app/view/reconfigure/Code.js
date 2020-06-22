@@ -1,4 +1,4 @@
-Ext.define('Demo.ux.Code', {
+Ext.define('Demo.view.reconfigure.Code', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.code',
 

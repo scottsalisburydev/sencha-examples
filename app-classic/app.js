@@ -3,13 +3,7 @@
  * from oroganizing the demos/examples in the navigation.
  */
 Ext.panel.Panel.prototype.category = 'N\\A';
-// Ext.grid.Panel.prototype.config.category = 'N\\A';
-// Ext.panel.Panel.prototype.setCategory = function (val) {
-//     this.category = val;
-// };
-// Ext.panel.Panel.prototype.getCategory = function () {
-//     return this.category;
-// };
+Ext.panel.Panel.prototype.description = 'N\\A';
 
 /*
  * This file launches the application by asking Ext JS to create
@@ -21,7 +15,7 @@ Ext.application({
     name: 'Demo',
 
     requires: [
-        'Util.*',
+        'Common.*',
         // This will automatically load all classes in the Demo namespace
         // so that application classes do not need to require each other.
         'Demo.*'

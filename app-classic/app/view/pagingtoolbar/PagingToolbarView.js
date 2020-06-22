@@ -14,9 +14,10 @@ Ext.define('Demo.view.pagingtoolbar.PagingToolbarView',{
         type: 'paging-toolbar-pagingtoolbargrid'
     },
     
-    category: 'Paging',
-    title: 'Paging Toolbar',
     iconCls: 'x-fa fa-table',
+    title: 'Paging Toolbar',
+    category: 'Rendering & Scrolling',
+    description: 'Click the next and previous buttons in the paging toolbar to load records based on the `pageSize` configuration.',
 
     /**
      * See Demo.store.Users for additional configuration related to paging.

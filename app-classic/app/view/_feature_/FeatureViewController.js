@@ -37,18 +37,18 @@ Ext.define('Demo.view._feature_.FeatureViewController', {
      * https://docs.sencha.com/extjs/7.2.0/classic/Ext.app.ViewController.html#cfg-routes
      */
     routes: {
-        'classic/:{example}': {
-            action: 'exampleRouteAction',
-            before: 'exampleRouteBefore',
-            name: 'example'
+        'classic/:{demo}': {
+            action: 'demoRouteAction',
+            before: 'demoRouteBefore',
+            name: 'demo'
         }
     },
 
-    exampleRouteBefore: function (values) {
+    demoRouteBefore: function (values) {
         console.log(this.$className + '.' + arguments.callee.name)
     },
 
-    exampleRouteAction: function (values) {
+    demoRouteAction: function (values) {
         var id = values.id;
         console.log(this.$className + '.' + arguments.callee.name)
     },

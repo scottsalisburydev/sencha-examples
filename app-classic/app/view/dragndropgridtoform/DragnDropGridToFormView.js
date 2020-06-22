@@ -57,7 +57,7 @@ Ext.define('Demo.view.dragndropgridtoform.DragnDropGridToFormView',{
             
             tools: [{
                 iconCls: 'x-fa fa-sync',
-                tooltip: 'Reset example',
+                tooltip: 'Reset demo',
                 handler: 'onResetClick'
             }],
 

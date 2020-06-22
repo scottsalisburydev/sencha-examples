@@ -6,10 +6,12 @@ Ext.define('Demo.view.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
 
-    beforeRender: function () {
-
+    init: function () {
+    
+        window.addEventListener('copy', this.onClipboardEvent.bind(this));
+        window.addEventListener('paste', this.onClipboardEvent.bind(this));
     },
-
+    
     afterRender: function () {
 
         var vm = this.getViewModel();
@@ -19,14 +21,15 @@ Ext.define('Demo.view.main.MainController', {
     },
 
     /**
+     * When the data in currentDemo changes call currentSelectionChange
      * https://docs.sencha.com/extjs/7.2.0/classic/Ext.app.ViewController.html#cfg-bindings
      */
     bindings: {
-        currentSelectionChange: '{currentExample}'
+        currentSelectionChange: '{currentDemo}'
     },
 
     currentSelectionChange: function (record) {
-        console.info('Updating components for selection change');
+        
         /**
          * Don't proceed if the record is empty. This is 
          * for initial load most times.
@@ -35,9 +38,9 @@ Ext.define('Demo.view.main.MainController', {
             return;
         }
 
-        var exampleContainer = this.getView().down('#classicExample')
-        var exampleSource = this.getView().down('#exampleSource')
-        var example;
+        var demoContainer = this.getView().down('#classicDemo')
+        var demoSource = this.getView().down('#demoSource')
+        var demo;
 
         /**
          * values extracted from the record
@@ -51,7 +54,7 @@ Ext.define('Demo.view.main.MainController', {
         /**
          * Create a new class instance
          */
-        example = Ext.create(className, {
+        demo = Ext.create(className, {
             padding: 0,
             bodyPadding: 0,
             margin: 0,
@@ -62,17 +65,17 @@ Ext.define('Demo.view.main.MainController', {
          * Remove all items from the component but don't destroy as it has a chain reaction for 
          * required classes I think.
          */
-        exampleContainer.removeAll(false, false)
+        demoContainer.removeAll(false, false)
 
         /**
-         * Add the example class instance to the panel.
+         * Add the demo class instance to the panel.
          */
-        exampleContainer.add(example)
+        demoContainer.add(demo)
         
         /**
          * Clear and add the source code tabs to the tabpanel.
          */
-        exampleSource.removeAll(true)
+        demoSource.removeAll(true)
         
         /**
          * Create a new array of the requires AND the 
@@ -94,14 +97,14 @@ Ext.define('Demo.view.main.MainController', {
              * For each file in the files array add a new `code`
              * component for displaying the source code.
              */
-            exampleSource.add(Ext.create({
+            demoSource.add(Ext.create({
                 xtype: 'code',
                 url: path,
                 title: path.split('/').pop(),
                 language: path.substr(path.lastIndexOf('.') + 1)
             }))
         });
-        exampleSource.setActiveTab(0);
+        demoSource.setActiveTab(0);
         
         this.updateNavigationScrollPosition();
         
@@ -124,7 +127,7 @@ Ext.define('Demo.view.main.MainController', {
         if (store.getCount()) {
             grid.setSelection(record);
         } else {
-            console.log('example not found for slug:', slug)
+            console.log('demo not found for slug:', slug)
         }
     },
     
@@ -168,7 +171,7 @@ Ext.define('Demo.view.main.MainController', {
 
     copyToClipboard: function () {
 
-        var tabpanel = this.getView().down('#exampleSource');
+        var tabpanel = this.getView().down('#demoSource');
         var activeTab = tabpanel.getActiveTab();
         if (!activeTab) {
             return console.log('No active tab to copy from.')
@@ -184,6 +187,31 @@ Ext.define('Demo.view.main.MainController', {
         document.execCommand("copy");
     },
 
+    onClipboardEvent: function (e) {
+        var message = '';
+        switch (e.type) {
+            case 'copy':
+                message = 'Copied to Clipboard';
+                break;
+            case 'paste':
+                message = 'Paste from Clipboard';
+                break;
+        }
+        Ext.toast(message);
+    },
+
+    filterNavigation: function (field, newValue, oldValue) {
+
+        var store = this.getViewModel().getStore('nav');
+
+        store.filter({
+            disableOnEmpty: true,
+            property: 'searchable',
+            operator: 'like',
+            value: newValue
+        });
+    },
+
     /**
      * !!!!!!!!!!!!!!!!!!!! :WARNING: !!!!!!!!!!!!!!!!!!!!
      * This won't really work when building for testing or production 
@@ -193,13 +221,18 @@ Ext.define('Demo.view.main.MainController', {
         console.time('build-nav')
 
         var files = Object.keys(Ext.ClassManager.classes)
-            .filter(className => (new RegExp('Demo.').test(className)))
-            .filter(className => (new RegExp('.view.').test(className) && !new RegExp('(_|Controller|Model|Store|Main|Raw|Code)').test(className)))
+            .filter(className => (new RegExp('Demo.view.').test(className) && !new RegExp('(_|Controller|Model|Store|Main|Raw|Code)').test(className)))
             .map((className, index) => {
                 var clazz     = Ext.ClassManager.get(className);
                 var aliases   = Ext.ClassManager.getAliasesByName(className);
                 var config    = clazz && clazz.prototype ? clazz.prototype.config : null;
+                
                 var title     = config.title || '';
+                // where do these come from? The Panel prototype was 
+                // modified to add two extra properties.
+                var category  = clazz.prototype.category != '' ? clazz.prototype.category : 'Misc.';
+                var desc      = clazz.prototype.description != '' ? clazz.prototype.description : title;
+
                 var xtype     = aliases && aliases.length ? aliases[0].replace('widget.', '') : 'no-xtype';
                 var slug      = title.toLowerCase().replace(/ +/g, '-').replace(/[-]+/g, '-').replace(/[^\w-]+/g, '');
                 var iconCls   = config.iconCls || 'x-fa fa-table';
@@ -209,10 +242,10 @@ Ext.define('Demo.view.main.MainController', {
                 var folder    = pathParts.join('/');
                 var extension = file.substr(file.lastIndexOf('.') + 1);
                 var requires  = [
+                    filePath,
+                    ...Ext.Loader.requiresMap[className].map(cls => Ext.Loader.getPath(cls)),
                     folder + '/readme.md',
                     folder + '/data.json',
-                    filePath,
-                    ...Ext.Loader.requiresMap[className].map(cls => Ext.Loader.getPath(cls))
                 ];
                 
                 var record = {
@@ -226,7 +259,8 @@ Ext.define('Demo.view.main.MainController', {
                     folder: folder,
                     file: file,
                     extension: extension,
-                    category: clazz.prototype.category != '' ? clazz.prototype.category : 'Misc.',
+                    category: category,
+                    description: desc,
                     requires: requires,
                     searchable: filePath.split('/').join(' ') + ' ' + title
                 };
@@ -238,15 +272,4 @@ Ext.define('Demo.view.main.MainController', {
         return files;
     },
 
-    filterNavigation: function(field, newValue, oldValue) {
-
-        var store = this.getViewModel().getStore('nav');
-        
-        store.filter({
-            disableOnEmpty: true,
-            property: 'searchable',
-            operator: 'like',
-            value: newValue
-        });
-    }
 });

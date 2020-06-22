@@ -15,11 +15,12 @@ Ext.define('Demo.view.rowexpandlocked.RowExpanderLockedColumnView',{
         type: 'rowexpandlocked-rowexpanderlockedcolumnsgrid'
     },
 
-    category: 'Row',
-    title: 'Row Expander & Locked Columns',
     iconCls: 'x-fa fa-layer-group',
+    title: 'Row Expander & Locked Columns',
+    category: 'Row',
+    description: 'Row Expansion with Locked Columns.',
 
-    store: { type:  'companies' },
+    store: { type:  'rowexpanderlockedcolumnstore' },
     
     headerBorders: true,
     gridLines: true,

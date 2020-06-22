@@ -9,7 +9,8 @@ Ext.define('Demo.view.rowbody.RowBodyStore', {
         type: 'ajax',
         url: 'app/view/rowbody/data.json',
         reader: {
-            type: 'json'
+            type: 'json',
+            rootProperty: 'companies'
         }
     }
 });

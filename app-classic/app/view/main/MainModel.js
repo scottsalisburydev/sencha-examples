@@ -6,11 +6,11 @@ Ext.define('Demo.view.main.MainModel', {
     alias: 'viewmodel.main',
 
     data: {
-        name: 'ExtJS Grid Examples',
+        name: 'ExtJS Grid Demos',
         
         filter: '',
 
-        currentExample: {}
+        currentDemo: {}
     },
 
     stores: {

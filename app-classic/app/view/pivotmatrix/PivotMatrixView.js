@@ -15,7 +15,7 @@ Ext.define('Demo.view.pivotmatrix.PivotMatrixView', {
         type: 'pivot-matrix-matrixgrid'
     },
     
-    category: 'Pivot',
+    category: 'Pivoting',
     title: 'Matrix Pivot Grid',
 
     /**

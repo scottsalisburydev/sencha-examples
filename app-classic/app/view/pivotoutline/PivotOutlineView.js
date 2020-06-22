@@ -1,4 +1,9 @@
-
+/**
+ * This example shows how to create a pivot grid and display the results in
+ * an outline layout.
+ *
+ * The outline layout is similar to the "Outline Form" layout in Excel.
+ */
 Ext.define('Demo.view.pivotoutline.PivotOutlineView',{
     extend: 'Ext.pivot.Grid',
 
@@ -14,9 +19,11 @@ Ext.define('Demo.view.pivotoutline.PivotOutlineView',{
     viewModel: {
         type: 'pivot-outline-outlinegrid'
     },
-
-    category: 'Pivot',
+    
+    // Not a Grid conig option. Used to group navigation.
     title: 'Outline layout',
+    category: 'Pivoting',
+    description: 'The outline layout is similar to the "Outline Form" layout in Excel.',
 
     multiSelect: true,
     columnLines: true,
@@ -30,9 +37,7 @@ Ext.define('Demo.view.pivotoutline.PivotOutlineView',{
 
     matrix: {
         type: 'local',
-        store: {
-            type: 'sales'
-        },
+        store: { type: 'pivotoutlinestore' },
 
         // Set layout type to "outline". If this config is missing then the default
         // layout is "outline"

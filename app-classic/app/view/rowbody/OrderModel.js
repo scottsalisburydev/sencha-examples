@@ -1,9 +1,5 @@
-Ext.define('Demo.model.Order', {
-    extend: 'Demo.model.Base',
-
-    requires: [
-        'Ext.data.proxy.Rest'
-    ],
+Ext.define('Demo.view.rowbody.OrderModel', {
+    extend: 'Ext.data.Model',
 
     fields: [
         // Declare an association with Company.
@@ -26,10 +22,11 @@ Ext.define('Demo.model.Order', {
     ],
 
     proxy: {
-        type: 'rest',
-        url: 'data/orders.json',
-        reader: { 
-            type: 'json' 
+        type: 'ajax',
+        url: 'app/view/rowbody/data.json',
+        reader: {
+            type: 'json',
+            rootPropery: 'orders'
         }
     }
 });

@@ -24,13 +24,11 @@ Ext.define('Demo.view.widgets.WidgetView',{
         type: 'widgets-widgetgrid'
     },
 
-    category: 'Widget',
+    category: 'Widget Integration',
     title: 'Widget Grid',
     iconCls: 'x-fa fa-cubes',
     
-    store: {
-        type: 'widgets' 
-    },
+    store: { type: 'widgets' },
 
     viewConfig: {
         stripeRows: true,

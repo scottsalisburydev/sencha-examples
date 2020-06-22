@@ -17,10 +17,11 @@ Ext.define('Demo.view.livedata.LiveDataView',{
         type: 'advanced-live-livedatagrid'
     },
 
-    category: '',
+    category: 'Rendering & Scrolling',
     title: 'Live Data Grid',
     iconCls: 'x-fa fa-clock',
-
+    description: 'Live updates made to model instances reflected in Grid rows.',
+    
     store: {
         type: 'livedatastore'
     },

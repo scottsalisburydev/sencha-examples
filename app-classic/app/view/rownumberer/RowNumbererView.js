@@ -20,7 +20,7 @@ Ext.define('Demo.view.rownumberer.RowNumbererView',{
     title: 'Row Numberer',
 
     columnLines: true,
-    store: { type:  'companies' },
+    store: { type:  'rownumbererstore' },
 
     columns: [{
         xtype: 'rownumberer'

@@ -15,9 +15,14 @@ Ext.define('Demo.view.renderingbuffered.RenderingBufferedView',{
         type: 'rendering-buffered-bufferedgrid'
     },
 
-    category: 'Rendering',
-    title: 'Infinate Scrolling',
     iconCls: 'x-fa fa-infinity',
+    title: 'Infinite Scrolling',
+    category: 'Rendering & Scrolling',
+    description: 
+        'A BufferedRenderer is instantiated which will monitor the scrolling in ' + 
+        'the grid, and refresh the view\'s rows from the page cache as needed. It ' + 
+        'will also pull new data into the page cache when scrolling of the view ' + 
+        'draws upon data near either end of the prefetched data.',
     
     /**
      * https://docs.sencha.com/extjs/7.2.0/classic/Ext.data.BufferedStore.html

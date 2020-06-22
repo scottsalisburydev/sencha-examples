@@ -19,7 +19,7 @@ Ext.define('Demo.view.rowsummary.RowSummaryView',{
     title: 'Summary',
 
     store: { 
-        type: 'tasks' 
+        type: 'rowsummarystore'
     },
 
     plugins: [{
@@ -46,8 +46,8 @@ Ext.define('Demo.view.rowsummary.RowSummaryView',{
         id: 'group',
         ftype: 'groupingsummary',
         groupHeaderTpl: '{name}',
-        hideGroupedHeader: true,
-        enableGroupingMenu: false
+        hideGroupedHeader: false,
+        enableGroupingMenu: true
     }],
 
     columns: [{
@@ -64,9 +64,7 @@ Ext.define('Demo.view.rowsummary.RowSummaryView',{
         /**
          * https://docs.sencha.com/extjs/7.2.0/classic/Ext.grid.column.Column.html#cfg-summaryRenderer
          */
-        summaryRenderer: function (value, summaryData, dataIndex) {
-            return ((value === 0 || value > 1) ? '(' + value + ' Tasks)' : '(1 Task)');
-        }
+        summaryRenderer: 'summaryRenderer'
     }, {
         header: 'Project',
         dataIndex: 'project',

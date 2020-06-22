@@ -2,8 +2,8 @@ Ext.define('Demo.view.reconfigure.ReconfigureView',{
     extend: 'Ext.panel.Panel',
 
     requires: [
-        'Demo.ux.Code',
         'Demo.view.editableevent.EditableEventView',
+        'Demo.view.reconfigure.Code',
         'Demo.view.reconfigure.RawData',
         'Demo.view.reconfigure.ReconfigureViewController',
         'Demo.view.reconfigure.ReconfigureViewModel',
@@ -15,9 +15,14 @@ Ext.define('Demo.view.reconfigure.ReconfigureView',{
         type: 'advanced-reconfigure'
     },
 
-    category: 'Advanced',
-    title: 'Reconfigurable Grid',
     iconCls: 'x-fa fa-cog',
+    title: 'Reconfigurable Grid',
+    category: 'Advanced',
+    description: 
+        'This demo allows you to reconfigure the grid based on a ' +
+        'endpoint of your choice. There are some pre populated to try out. ' +
+        'Select a row from the data source to view how the data is interpreted ' +
+        'and choose a root property for the store\'s proxy reader.',
 
     /**
      * Layout components in the items array in a row

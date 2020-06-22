@@ -10,7 +10,7 @@ Ext.define('Demo.view.pagingslider.PagingSliderStore', {
         }
     ],
 
-    pageSize: 50,
+    pageSize: 10,
     remoteSort: true,
     autoLoad: true,
     proxy: {

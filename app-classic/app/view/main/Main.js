@@ -44,8 +44,7 @@ Ext.define('Demo.view.main.Main', {
         xtype: 'grid',
         frame: true,
         itemId: 'navigation',
-
-        title: 'Examples',
+        title: 'Demos',
         width: 300,
         collapsible: true,
         collapseDirection: 'left',
@@ -62,7 +61,7 @@ Ext.define('Demo.view.main.Main', {
             /**
              * https://docs.sencha.com/extjs/7.2.0/classic/Ext.grid.selection.Selection.html
              */
-            selection: '{currentExample}',
+            selection: '{currentDemo}',
             /**
              * Reference to store in viewModel
              */
@@ -136,75 +135,98 @@ Ext.define('Demo.view.main.Main', {
             }            
         }
     },
-
-    // bodyPadding: 10,
-    bodyStyle: {
-        backgroundColor: '#eee'
-    },
-    defaults: {
-        
-    },
     
     items: [
         {
-            xtype: 'panel',
-            itemId: 'classicExample',
+            xtype: 'container',
+            padding: 20, //'0 20px 20px 20px',
             flex: 1,
-            layout: 'fit',
-            frame: true,
-            margin: 20,
+            minWidth: 500,
+            layout: {
+                type: 'vbox',
+                pack: 'stretch',
+                align: 'stretch'
+            },
+            style: {
+                backgroundColor: '#eee'
+            },
             items: [
-                //
-                // example gets added here when a selection is made. 
-                //
+                {
+                    dock: 'top',
+                    xtype: 'panel',
+                    bodyPadding: '0px 10px 5px 10px',
+                    margin: '0px 0px 20px 0px',
+                    flex: 0,
+                    bind: {
+                        html: '<h2 style="color: #043f59; font-weight: 400;">{currentDemo.title}</h2><p>{currentDemo.description}</p>'
+                    }
+                },
+                {
+                    xtype: 'panel',
+                    itemId: 'classicDemo',
+                    frame: true,
+                    layout: 'fit',
+                    flex: 4,
+                    items: [
+                        //
+                        // demo gets added here when a selection is made. 
+                        //
+                    ]
+                }
             ]
         },
         {
             xtype: 'tabpanel',
-            itemId: 'exampleSource',
-            width: 400,
+            itemId: 'demoSource',
             resizable: true,
             collapsible: true,
+
             responsiveConfig: {
                 tall: {
-                    collapseDirection: 'bottom',        
+                    height: '50%',
+                    collapseDirection: 'bottom',
                 },
                 wide: {
+                    width: '50%',
                     collapseDirection: 'right',
                 }
             },
+
             frame: true,
             titleRotation: 0,
             tabRotation: 0,
             tabBarHeaderPosition: 1,
+            tabPosition: 'top',
 
-            header: {
-                layout: {
-                    align: 'stretchmax'
-                },
-                title: {
-                    text: 'Source',
-                    flex: 0
-                },
-                iconCls: 'x-fa fa-code'
-            },
-
-            tabBar: {
-                flex: 1,
-                layout: {
-                    align: 'stretch'
-                }
-            },
-
-            tbar: [{
-                xtype: 'tbfill'
-            }, {
-                xtype: 'button',
-                text: 'Copy to Clipboard',
-                ui: 'default',
+            tools: [{
+                tooltip: 'Copy to Clipboard',
                 iconCls: 'x-fa fa-clipboard',
                 handler: 'copyToClipboard'
             }],
+
+            title: {
+                text: 'Source',
+                flex: 0,
+                padding: '0 10px'
+            },
+
+            iconCls: 'x-fa fa-code',
+
+            tabBar: {
+                flex: 3,
+                layout: {
+                    align: 'stretch',
+                    pack: 'stretch',
+                    wrap: 'wrap',
+                    overflowHandler: 'menu'
+                }
+            },
+            
+            defaults: {
+                tabConfig: {
+                    flex: 0
+                }
+            },
 
             items: [
                 {

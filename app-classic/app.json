@@ -20,7 +20,7 @@
         "ux",
         "exporter",
         "pivot",
-        "util"
+        "common"
     ],
 
     /**

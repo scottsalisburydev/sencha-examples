@@ -10,7 +10,7 @@ Ext.define('Demo.view._feature_.FeatureViewModel', {
      */
     data: {
         
-        description: 'Example Description and/or explanation.',
+        description: 'Demo Description and/or explanation.',
 
         selection: {}
     },

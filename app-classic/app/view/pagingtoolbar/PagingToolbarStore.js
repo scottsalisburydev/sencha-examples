@@ -11,7 +11,7 @@ Ext.define('Demo.view.pagingtoolbar.PagingToolbarStore', {
         }
     ],
 
-    pageSize: 50,
+    pageSize: 10,
     remoteSort: true,
     autoLoad: true,
     proxy: {

@@ -8,6 +8,7 @@ Ext.define('Demo.view.pivotoutline.PivotOutlineStore', {
     proxy: {
         type: 'ajax',
         url: 'app/view/pivotoutline/data.json',
+        limitParam: null,
         reader: {
             type: 'json'
         }

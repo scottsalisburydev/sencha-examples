@@ -5,10 +5,10 @@ Ext.define('Demo.view.rowheight.RowHeightView',{
     extend: 'Ext.grid.Panel',
 
     requires: [
-        'Demo.view.rowheight.RowHeightView',
-        'Demo.view.rowheight.RowHeightView',
-        'Demo.view.rowheight.RowHeightView',
-        'Demo.view.rowheight.RowHeightView',
+        'Demo.view.rowheight.RowHeightViewController',
+        'Demo.view.rowheight.RowHeightViewModel',
+        'Demo.view.rowheight.RowHeightStore',
+        'Demo.view.rowheight.RowHeightStoreModel',
     ],
 
     xtype: 'rowheightview',
@@ -17,10 +17,12 @@ Ext.define('Demo.view.rowheight.RowHeightView',{
         type: 'rowheightview'
     },
 
-    category: 'Row',
-    title: 'Variable Row Height',
     iconCls: 'x-fa fa-text-height',
-    store: { type:  'companies' },
+    title: 'Variable Row Height',
+    category: 'Row',
+    description: 'Allow rows with varied height.',
+
+    store: { type:  'rowheightstore' },
 
     multiSelect: true,
     headerBorders: true,
