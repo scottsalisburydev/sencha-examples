@@ -8,6 +8,13 @@ Ext.define('Demo.view.main.MainModel', {
     data: {
         name: 'ExtJS Grid Demos',
         
+        // If false the component will be hidden or collapsed.
+        toolbar: true,
+        description: true,
+        demo: true,
+        source: true,
+        navigation: true,
+
         filter: '',
 
         currentDemo: null, // object

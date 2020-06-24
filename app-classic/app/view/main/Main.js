@@ -25,6 +25,9 @@ Ext.define('Demo.view.main.Main', {
         dock: 'top',
         xtype: 'toolbar',
         itemId: 'mainToolbar',
+        bind: {
+            hidden: '{toolbar}'
+        },
         items: [{
             text: 'Prev Demo',
             iconCls: 'x-fa fa-arrow-left',
@@ -64,6 +67,8 @@ Ext.define('Demo.view.main.Main', {
         },
 
         bind: {
+            collapsed: '{navigation}',
+
             /**
              * https://docs.sencha.com/extjs/7.2.0/classic/Ext.grid.selection.Selection.html
              */
@@ -159,6 +164,9 @@ Ext.define('Demo.view.main.Main', {
             style: {
                 backgroundColor: '#eee'
             },
+            bind: {
+                hidden: '{description && demo}'
+            },
             items: [
                 {
                     dock: 'top',
@@ -168,6 +176,7 @@ Ext.define('Demo.view.main.Main', {
                     flex: 0,
                     itemId: 'demoDescription',
                     bind: {
+                        hidden: '{description}',
                         html: '<h2 style="color: #043f59; font-weight: 400;">{currentDemo.title}</h2><p>{currentDemo.description}</p>'
                     }
                 },
@@ -177,12 +186,11 @@ Ext.define('Demo.view.main.Main', {
                     frame: true,
                     layout: 'fit',
                     flex: 4,
+                    bind: { 
+                        hidden: '{demo}' 
+                    },
                     items: [
-                        {
-                            xtype: 'code',
-                            title: 'Notes',
-                            url: 'readme.md'
-                        }
+                        // demo gets loaded here dynamically
                     ]
                 }
             ]
@@ -197,14 +205,17 @@ Ext.define('Demo.view.main.Main', {
             itemId: 'demoSource',
             resizable: true,
             collapsible: true,
+            
+            bind: {
+                collapsed: '{source}'
+            },
 
+            flex: 1,
             responsiveConfig: {
                 tall: {
-                    height: '50%',
                     collapseDirection: 'bottom',
                 },
                 wide: {
-                    width: '50%',
                     collapseDirection: 'right',
                 }
             },
@@ -250,31 +261,7 @@ Ext.define('Demo.view.main.Main', {
              * how the main view is configured.
              */
             items: [
-                // {
-                //     xtype: 'code',
-                //     title: 'Main',
-                //     url: 'app/view/main/Main.js'
-                // },
-                // {
-                //     xtype: 'code',
-                //     title: 'ViewController',
-                //     url: 'app/view/main/MainController.js'
-                // },
-                // {
-                //     xtype: 'code',
-                //     title: 'ViewModel',
-                //     url: 'app/view/main/MainModel.js'
-                // },
-                // {
-                //     xtype: 'code',
-                //     title: 'Code',
-                //     url: '../packages/local/common/src/Common/ux/Code.js'
-                // },
-                // {
-                //     xtype: 'code',
-                //     title: 'Application.scss',
-                //     url: 'app/Application.scss'
-                // }
+                // source code tabs get set when demo is selected
             ]
         }
     ]

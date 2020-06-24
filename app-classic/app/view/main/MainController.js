@@ -7,12 +7,12 @@ Ext.define('Demo.view.main.MainController', {
     alias: 'controller.main',
 
     init: function () {
-        this.preConfiguredView();
         // if user is coming to the app without a hash, 
         // then update the hash to trigger router.
         if (!window.location.hash) {
             this.updateHash('meta', 'demoviewmainmain');
         }
+        this.preConfiguredView();
 
         window.addEventListener('copy', this.onClipboardEvent.bind(this));
         window.addEventListener('paste', this.onClipboardEvent.bind(this));
@@ -27,35 +27,14 @@ Ext.define('Demo.view.main.MainController', {
     },
 
     preConfiguredView: function () {
+        var vm = this.getViewModel();
         var params = new URLSearchParams(window.location.search || window.location.hash.split('?').pop());
-        
-        var toolbar = this.getView().down('#mainToolbar');
-        if (params.get('toolbar') == "false") {
-            toolbar.hide();
-        } else {
-            toolbar.show();
-        }
 
-        var description = this.getView().down('#demoDescription');
-        if (params.get('toolbar') == "false") {
-            description.hide();
-        } else {
-            description.show();
-        }
-
-        var navigation = this.getView().down('#navigation');
-        if (params.get('navigation') == "false") {
-            navigation.collapse();
-        } else {
-            navigation.expand();
-        }
-
-        var source = this.getView().down('#demoSource');
-        if (params.get('source') == "false") {
-            source.collapse();
-        } else {
-            source.expand();
-        }
+        vm.set('demo', (params.get('demo') == 'false'));
+        vm.set('source', (params.get('source') == 'false'));
+        vm.set('toolbar', (params.get('toolbar') == 'false'));
+        vm.set('navigation', (params.get('navigation') == 'false'));
+        vm.set('description', (params.get('description') == 'false'));
     },
 
     /*******************************
@@ -218,7 +197,7 @@ Ext.define('Demo.view.main.MainController', {
     
     route: function (category, demo) {
         console.log(this.$className + '.' + arguments.callee.name, '/' + category + '/' + demo);
-        // this.preConfiguredView();
+
         var grid = this.getView().down('#navigation');
         var vm = this.getViewModel();
         var store = vm.getStore('nav')
@@ -238,10 +217,12 @@ Ext.define('Demo.view.main.MainController', {
         }
 
         var record = collection.first();
+        
+        vm.set('currentDemo', record);
 
         grid.ensureVisible(record, {
             animate: true,
-            select: true,
+            select: false,
             highlight: true
         });
     },

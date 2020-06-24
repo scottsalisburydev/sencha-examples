@@ -1,32 +1,32 @@
 # ExtJS Grid Demos
 
-## URLs:
+## Linking/Routing:
 
-Supported parameters
-```
+Supported parameters:
+
+If empty or exluded in url they will default to true
+
+```text
     http://localhost:1841/app-classic/
         
-        ?toolbar=[true|false]
-        &description=[true|false]
-        &navigation=[true|false] (collapses)
-        &source=[true|false] (collapses)
+        ?toolbar        =[false|true] (hides/shows)
+        &description    =[false|true] (hides/shows)
+        &navigation     =[false|true] (collapses/expands)
+        &source         =[false|true] (collapses/expands)
         
         #/category-slug/demo-slug
 ``` 
 
-Hide Everything except the example
-    
-    http://localhost:1841/app-classic/?toolbar=false&description=false&source=false&navigation=false
+### Some Examples:
 
-Collapsed Navigation and Source Code 
-
-    http://localhost:1841/app-classic/?toolbar=true&description=true&source=false&navigation=false
+- __Hide Everything except the example:__ https://trozlabs.com/sencha-examples/app-classic/?toolbar=false&description=false&source=false&navigation=false
+- __Collapsed Navigation and Source Code:__ https://trozlabs.com/sencha-examples/app-classic/?toolbar=true&description=true&source=false&navigation=false
 
 
 
-Demo file structure:
+## Demo file structure:
 
-```
+```shell
 app-classic/
     model/ - dont use
     store/ - dont use
@@ -65,47 +65,39 @@ minified state so for now just publish the entire workspace.
 ## New App 
 
 ```shell
+    sencha generate app -ext@7.2 -classic Demo app-classic
 
-sencha generate app -ext@7.2 -classic Demo app-classic
-
-sencha generate app -ext@7.2 -modern Demo app-modern
-
+    sencha generate app -ext@7.2 -modern Demo app-modern
 ```
 
 ## New View Package
 
-```
+```shell
+    sencha generate view -n="someexample.SomeExampleView" -b="Ext.grid.Grid"; 
 
-sencha generate view -n="someexample.SomeExampleView" -b="Ext.grid.Grid"; 
+    sencha generate view -n="someexample.SomeExampleStore" -b="Ext.data.Store"; 
 
-sencha generate view -n="someexample.SomeExampleStore" -b="Ext.data.Store"; 
+    sencha generate view -n="someexample.SomeExampleStoreModel" -b="Ext.data.Model"; 
 
-sencha generate view -n="someexample.SomeExampleStoreModel" -b="Ext.data.Model"; 
+    touch \
+        app/view/someexample/readme.md \
+        app/view/someexample/data.json
 
-touch \
-    app/view/someexample/readme.md \
-    app/view/someexample/data.json
-
-# or just copy one that already exists to new location
+    # or just copy one that already exists to new location
 ```
 
 ## Classic
 
-```
-cd app-classic 
+```shell
+    cd app-classic 
 
-sencha app build -dev && sencha app watch
+    sencha app build -dev && sencha app watch
 ```
 
 ## Modern
 
+```shell
+    cd app-modern 
+
+    sencha app build -dev && sencha app watch
 ```
-cd app-modern 
-
-sencha app build -dev && sencha app watch
-```
-
-### TODO:
-
-- copy code from classic to modern and change what is needed for it to work.
-- some code used for running the demos could probably be shared in package.
