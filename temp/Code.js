@@ -1,13 +1,13 @@
-Ext.define('Common.ux.Code', {
+Ext.define('Demo.view.reconfigure.Code', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.code',
 
     scrollable: true,
 
-    html: '',
-        // '<pre style="width: 100%; height: 100%; margin: 0;">' + 
-        //     '<code style="width: 100%; height: 100%;" class="code-block language-json"></code>' +
-        // '</pre>',
+    html: 
+        '<pre style="width: 100%; height: 100%; margin: 0;">' + 
+            '<code style="width: 100%; height: 100%;" class="code-block language-json"></code>' +
+        '</pre>',
 
     cls: 'x-selectable',
 
@@ -19,8 +19,6 @@ Ext.define('Common.ux.Code', {
 
         value: null,
 
-        filename: null,
-
         file: null,
 
         language: 'json'
@@ -28,7 +26,9 @@ Ext.define('Common.ux.Code', {
 
     initComponent: function() {
         var me = this;
-        Ext.apply(me, {});
+        Ext.apply(me, {
+            title: this.title || 'File'
+        });
 
         me.callParent(arguments);
         me.on('afterrender', me.onAfterRender, me);
@@ -49,7 +49,7 @@ Ext.define('Common.ux.Code', {
     },
     
     loadData: function(callback) {
-        // console.log(arguments.callee.name);
+        console.log(arguments.callee.name);
         
         this.clear();
 
@@ -81,14 +81,15 @@ Ext.define('Common.ux.Code', {
     },
 
     setValue: function(value) {
+        console.log(arguments.callee.name);
         
         this.value = value;
 
         var lang = this.getLanguage();
         var text;
         
-        console.log('language:', lang);
-
+        console.log(lang, this.url);
+        
         if (typeof this.value == 'object') {
             text = JSON.stringify(this.value, null, 4);
         } else if (lang == 'html') {
@@ -170,7 +171,7 @@ Ext.define('Common.ux.Code', {
      * to make clickable.
      */
     wrapDocLinks: function () {
-        // console.log(arguments.callee.name);
+        console.log(arguments.callee.name);
 
         // find all the elements marked as comments 
         var commentBlocks = document.querySelectorAll('#' + this.getId() + ' code .token.comment');
@@ -195,19 +196,15 @@ Ext.define('Common.ux.Code', {
         return path.substr(path.lastIndexOf('.') + 1);
     },
     
-    extToLanguage: function (ext) {
+    getFileType: function (ext) {
         ext = ext || this.getFileExtension();
-        console.log('extionsion:', ext);
+        console.log(arguments.callee.name, ext);
         switch (ext) {
             case 'xml':
-                return 'xml';
             case 'html':
                 return 'html';
-            case 'json':
             case 'js':
                 return 'javascript';
-            case 'ts':
-                return 'typescript';
             case 'css':
                 return 'css';
             case 'scss':
@@ -216,9 +213,8 @@ Ext.define('Common.ux.Code', {
             case 'markdown':
                 return 'markdown';
             case 'txt':
-                return 'plaintext'
             default:
-                return ext;
+                return 'plaintext'
         }
     },
 
@@ -227,15 +223,21 @@ Ext.define('Common.ux.Code', {
      * @param {*} btn 
      */
     load: function () {
+        console.log(arguments.callee.name);
 
         var path = this.getUrl();
         var file = path.split('/').pop();
-        var language = this.extToLanguage(file.substr(file.lastIndexOf('.') + 1));
+        var language = this.getFileType(file.substr(file.lastIndexOf('.') + 1));
 
         /**
          * Show a mask while loading the file to be displayed
          */
         this.mask('Loading');
+
+        /**
+         * Update the Window title
+         */
+        // this.setTitle(file);
 
         // FYI: Using fetch here because Ext.Ajax.request was
         // being too aware of what was getting loaded.

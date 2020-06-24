@@ -1,5 +1,29 @@
 # ExtJS Grid Demos
 
+## URLs:
+
+Supported parameters
+```
+    http://localhost:1841/app-classic/
+        
+        ?toolbar=[true|false]
+        &description=[true|false]
+        &navigation=[true|false] (collapses)
+        &source=[true|false] (collapses)
+        
+        #/category-slug/demo-slug
+``` 
+
+Hide Everything except the example
+    
+    http://localhost:1841/app-classic/?toolbar=false&description=false&source=false&navigation=false
+
+Collapsed Navigation and Source Code 
+
+    http://localhost:1841/app-classic/?toolbar=true&description=true&source=false&navigation=false
+
+
+
 Demo file structure:
 
 ```
