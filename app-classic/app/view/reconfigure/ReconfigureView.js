@@ -3,7 +3,7 @@ Ext.define('Demo.view.reconfigure.ReconfigureView',{
 
     requires: [
         'Demo.view.editableevent.EditableEventView',
-        'Demo.view.reconfigure.Code',
+        'Common.ux.Code',
         'Demo.view.reconfigure.RawData',
         'Demo.view.reconfigure.ReconfigureViewController',
         'Demo.view.reconfigure.ReconfigureViewModel',

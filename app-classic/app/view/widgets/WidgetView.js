@@ -28,7 +28,7 @@ Ext.define('Demo.view.widgets.WidgetView',{
     title: 'Widget Grid',
     iconCls: 'x-fa fa-cubes',
     
-    store: { type: 'widgets' },
+    store: { type: 'widgetstore' },
 
     viewConfig: {
         stripeRows: true,

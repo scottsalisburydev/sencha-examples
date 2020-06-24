@@ -18,7 +18,7 @@ Ext.define('Demo.view.clipboard.ClipboardView',{
     },
 
     iconCls: 'x-fa fa-clipboard',
-    title: 'Copy & Paste',
+    title: 'Copy and Paste',
     category: 'Editing',
     description: 'Click and Drag Cells or Rows to make a Selection then use Copy and Paste Keyboard Commands',
 

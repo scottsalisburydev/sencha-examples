@@ -10,7 +10,7 @@ Ext.define('Demo.view.main.MainModel', {
         
         filter: '',
 
-        currentDemo: {}
+        currentDemo: null, // object
     },
 
     stores: {
@@ -19,16 +19,19 @@ Ext.define('Demo.view.main.MainModel', {
 
             // prevent the main view from being included
             // in the navigation grid.
-            filters: [{
-                property: 'category',
-                value: 'main',
-                operator: '!='
-            }],
+            // filters: [{
+            //     property: 'category',
+            //     value: 'main',
+            //     operator: '!='
+            // }],
 
             fields: [
                 'id',
                 'title',
+                'category',
+                'description',
                 'slug',
+                'categorySlug',
                 'iconCls',
                 'className',
                 'xtype',
@@ -36,7 +39,6 @@ Ext.define('Demo.view.main.MainModel', {
                 'folder',
                 'file',
                 'extension',
-                'category',
                 'requires',
                 'searchable',
             ],

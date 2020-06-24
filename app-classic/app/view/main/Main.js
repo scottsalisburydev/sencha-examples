@@ -9,7 +9,7 @@ Ext.define('Demo.view.main.Main', {
          * https://docs.sencha.com/extjs/7.2.0/classic/Ext.plugin.Viewport.html
          */
         'Ext.plugin.Viewport',
-
+        'Common.ux.Code',
         'Demo.view.main.MainController',
         'Demo.view.main.MainModel'
     ],
@@ -18,25 +18,31 @@ Ext.define('Demo.view.main.Main', {
     controller: 'main',
     viewModel: 'main',
 
+    category: 'Meta',
+    description: 'The Main view that is used to organize and display the Demos',
+
     dockedItems: [{
         dock: 'top',
         xtype: 'toolbar',
+        itemId: 'mainToolbar',
         items: [{
             text: 'Prev Demo',
             iconCls: 'x-fa fa-arrow-left',
             iconAlign: 'left',
+            itemId: 'prevDemo',
             handler: 'prevDemo'
         }, {
             xtype: 'tbfill',
         }, {
             xtype: 'tbtext',
-            html: 'ExtJS Classic'
+            html: '<h1>ExtJS Classic Grid Demos</h1>'
         }, {
             xtype: 'tbfill',
         }, {
             text: 'Next Demo',
             iconCls: 'x-fa fa-arrow-right',
             iconAlign: 'right',
+            itemId: 'nextDemo',
             handler: 'nextDemo'
         }]
     }, {
@@ -72,9 +78,12 @@ Ext.define('Demo.view.main.Main', {
          * https://docs.sencha.com/extjs/7.2.0/classic/Ext.grid.feature.Grouping.html
          */
         features: [{
+            id: 'navGrouping',
             ftype: 'grouping',
             startCollapsed: false,
-            groupHeaderTpl: '{name:uppercase}'
+            groupHeaderTpl: '{name:uppercase}',
+            startCollapsed: true
+            // depthToIndent: 40,
         }],
 
         /**
@@ -95,8 +104,8 @@ Ext.define('Demo.view.main.Main', {
              */
             {
                 dataIndex: 'iconCls',
-                width: 40,
-                align: 'center',
+                width: 60,
+                align: 'right',
 
                 /**
                  * Using a renderer to apply the iconCls value to a dom element.
@@ -139,7 +148,7 @@ Ext.define('Demo.view.main.Main', {
     items: [
         {
             xtype: 'container',
-            padding: 20, //'0 20px 20px 20px',
+            padding: 20,
             flex: 1,
             minWidth: 500,
             layout: {
@@ -157,6 +166,7 @@ Ext.define('Demo.view.main.Main', {
                     bodyPadding: '0px 10px 5px 10px',
                     margin: '0px 0px 20px 0px',
                     flex: 0,
+                    itemId: 'demoDescription',
                     bind: {
                         html: '<h2 style="color: #043f59; font-weight: 400;">{currentDemo.title}</h2><p>{currentDemo.description}</p>'
                     }
@@ -168,13 +178,20 @@ Ext.define('Demo.view.main.Main', {
                     layout: 'fit',
                     flex: 4,
                     items: [
-                        //
-                        // demo gets added here when a selection is made. 
-                        //
+                        {
+                            xtype: 'code',
+                            title: 'Notes',
+                            url: 'readme.md'
+                        }
                     ]
                 }
             ]
         },
+        
+        /**
+         * The Source Code Panel is not a docked item since it is rearraynged 
+         * depending on viewport width.
+         */
         {
             xtype: 'tabpanel',
             itemId: 'demoSource',
@@ -198,16 +215,16 @@ Ext.define('Demo.view.main.Main', {
             tabBarHeaderPosition: 1,
             tabPosition: 'top',
 
-            tools: [{
-                tooltip: 'Copy to Clipboard',
-                iconCls: 'x-fa fa-clipboard',
-                handler: 'copyToClipboard'
-            }],
+            tools: [
+                {
+                    tooltip: 'Copy to Clipboard',
+                    iconCls: 'x-fa fa-clipboard',
+                    handler: 'copyToClipboard'
+                }
+            ],
 
             title: {
-                text: 'Source',
                 flex: 0,
-                padding: '0 10px'
             },
 
             iconCls: 'x-fa fa-code',
@@ -218,7 +235,7 @@ Ext.define('Demo.view.main.Main', {
                     align: 'stretch',
                     pack: 'stretch',
                     wrap: 'wrap',
-                    overflowHandler: 'menu'
+                    overflowHandler: null
                 }
             },
             
@@ -228,12 +245,36 @@ Ext.define('Demo.view.main.Main', {
                 }
             },
 
+            /**
+             * Setting some defaults for anyone curious 
+             * how the main view is configured.
+             */
             items: [
-                {
-                    xtype: 'code',
-                    title: 'Notes',
-                    url: 'readme.md'
-                }
+                // {
+                //     xtype: 'code',
+                //     title: 'Main',
+                //     url: 'app/view/main/Main.js'
+                // },
+                // {
+                //     xtype: 'code',
+                //     title: 'ViewController',
+                //     url: 'app/view/main/MainController.js'
+                // },
+                // {
+                //     xtype: 'code',
+                //     title: 'ViewModel',
+                //     url: 'app/view/main/MainModel.js'
+                // },
+                // {
+                //     xtype: 'code',
+                //     title: 'Code',
+                //     url: '../packages/local/common/src/Common/ux/Code.js'
+                // },
+                // {
+                //     xtype: 'code',
+                //     title: 'Application.scss',
+                //     url: 'app/Application.scss'
+                // }
             ]
         }
     ]
