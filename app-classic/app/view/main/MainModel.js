@@ -31,6 +31,13 @@ Ext.define('Demo.view.main.MainModel', {
             //     value: 'main',
             //     operator: '!='
             // }],
+            sorters: [{
+                property: 'category', 
+                direction: 'ASC'
+            }, {
+                property: 'title',
+                direction: 'ASC'
+            }],
 
             fields: [
                 'id',

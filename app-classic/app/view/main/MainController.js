@@ -231,19 +231,23 @@ Ext.define('Demo.view.main.MainController', {
         this.nextDemo(btn)
     },
 
+    /**
+     * Finds the next and prev record based on index of stores current sorting.
+     */
     nextDemo: function (btn) {
+
         var addOne = (btn.getItemId() == 'nextDemo');
         var vm = this.getViewModel();
         var store = vm.getStore('nav');
-        var oldRecord = vm.get('currentDemo');
-        var oldRecordId = oldRecord && oldRecord.get('id');
-        var newRecordId = addOne ? oldRecordId+1 : oldRecordId-1;
-        var collection = store.query('id', newRecordId);
-        var newRecord = collection.length
-            ? collection.first()
-            : (addOne ? store.first() : store.last());
+        
+        var prevRecord = vm.get('currentDemo');
+        var prevIndex = store.find('id', prevRecord.get('id')) ;
+        var nextIndex = addOne ? prevIndex + 1 : prevIndex -1;
+        var nextRecord = store.getAt(nextIndex);
+        
+        var result = nextRecord ? nextRecord : (addOne ? store.first() : store.last());
 
-        vm.set('currentDemo', newRecord)
+        vm.set('currentDemo', result)
     },
 
     updateHash: function (category, demo) {
