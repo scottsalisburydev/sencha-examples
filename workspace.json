@@ -3,7 +3,8 @@
      *  An array of the paths to all the applications present in this workspace
      */
     "apps": [
-        "app-classic"
+        "app-classic",
+        "app-modern"
     ],
 
     /**
@@ -37,9 +38,12 @@
 
     /**
      * This is the folder for build outputs in the workspace.
+     * ADDDED MODERN AND CLASSIC TO BUILD TO DIFF DIRS TO PREVENT OVERWRITING THE OTHER.
      */
     "build": {
-        "dir": "${workspace.dir}/build"
+        "dir": "${workspace.dir}/build",
+        "classic": "${workspace.dir}/build-classic",
+        "modern": "${workspace.dir}/build-modern"
     },
 
     /**

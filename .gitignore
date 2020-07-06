@@ -4,3 +4,4 @@
 # modern.json*
 .sencha
 .DS_Store
+*.log
