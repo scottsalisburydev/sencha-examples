@@ -3,10 +3,7 @@
      *  An array of the paths to all the applications present in this workspace
      */
     "apps": [
-        "app-classic",
-        "app-universal",
-        "app-embed",
-        "demo-classic"
+        "app-classic"
     ],
 
     /**

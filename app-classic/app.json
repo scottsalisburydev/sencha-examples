@@ -409,7 +409,7 @@
      *
      */
     "output": {
-        "base": "${workspace.build.dir}/${build.environment}/${app.name}",
+        "base": "${workspace.build.classic}/${build.environment}/${app.name}",
         "appCache": {
             "enable": false
         }

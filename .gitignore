@@ -1,6 +1,6 @@
-/build
-bootstrap.*
-classic.json*
-modern.json*
+# /build
+# bootstrap.*
+# classic.json*
+# modern.json*
 .sencha
 .DS_Store
